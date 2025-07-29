@@ -22,5 +22,5 @@ LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 ADMIN_IDS = [6082136901]
 FORCE_SUB_CHANNEL_ID = "-1002581367215"
 # MongoDB configuration
-MONGODB_URI = '' # or your MongoDB connection string
+MONGODB_URI = 'mongodb+srv://task:task@cluster0.5c3xjy5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0' # or your MongoDB connection string
 DATABASE_NAME = 'autoposter_bot'

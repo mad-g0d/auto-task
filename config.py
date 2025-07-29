@@ -1,26 +1,26 @@
-# Telegram API credentials (get from my.telegram.org)
-API_ID = "123456"
-API_HASH = "hash here"
-BOT_TOKEN = "bot token here"
+import os
+from dotenv import load_dotenv
 
-# Rate limiting settings (in seconds)
-ADMIN_DELAY = 1.5      # Delay between admin checks
-FORWARD_DELAY = 2.0    # Delay between message forwards
-BATCH_DELAY = 0.5      # Delay between files in a batch
-DELETE_DELAY = 0.3     # Delay between message deletions
+load_dotenv()
 
-# Database settin
+API_ID = int(os.getenv("API_ID"))
+API_HASH = os.getenv("API_HASH")
+BOT_TOKEN = os.getenv("BOT_TOKEN")
 
-# Job limits
-MAX_BATCH_SIZE = 20
-MAX_RECURRING_TIME = 1440  # 24 hours in minutes
-MAX_DELETE_TIME = 10080    # 7 days in minutes
+ADMIN_DELAY = float(os.getenv("ADMIN_DELAY", 1.5))
+FORWARD_DELAY = float(os.getenv("FORWARD_DELAY", 2.0))
+BATCH_DELAY = float(os.getenv("BATCH_DELAY", 0.5))
+DELETE_DELAY = float(os.getenv("DELETE_DELAY", 0.3))
 
-# Logging configuration
-LOG_LEVEL = "INFO"
-LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
-ADMIN_IDS = [6082136901]
-FORCE_SUB_CHANNEL_ID = "-1002581367215"
-# MongoDB configuration
-MONGODB_URI = 'mongodb+srv://task:task@cluster0.5c3xjy5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0' # or your MongoDB connection string
-DATABASE_NAME = 'autoposter_bot'
+MAX_BATCH_SIZE = int(os.getenv("MAX_BATCH_SIZE", 20))
+MAX_RECURRING_TIME = int(os.getenv("MAX_RECURRING_TIME", 1440))
+MAX_DELETE_TIME = int(os.getenv("MAX_DELETE_TIME", 10080))
+
+LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
+LOG_FORMAT = os.getenv("LOG_FORMAT")
+
+ADMIN_IDS = [int(x) for x in os.getenv("ADMIN_IDS").split(",")]
+FORCE_SUB_CHANNEL_ID = int(os.getenv("FORCE_SUB_CHANNEL_ID"))
+
+MONGODB_URI = os.getenv("MONGODB_URI")
+DATABASE_NAME = os.getenv("DATABASE_NAME")

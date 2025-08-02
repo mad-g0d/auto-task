@@ -1344,7 +1344,7 @@ Are you sure you want to delete the job <b>"{job['job_name']}"</b>?
         await self.db.delete_job(job_id)
         
         await callback_query.edit_message_text(
-            f"🗑️ Job <b>"{job['job_name']}"</b> has been deleted successfully.",
+            f'🗑 Job <b>"{job["job_name"]}"</b> has been deleted successfully.' ,        
             parse_mode=enums.ParseMode.HTML
         )
         
